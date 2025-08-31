@@ -1,5 +1,54 @@
 # UberWallet Development Task List
 
+## 📋 Git Version Control Strategy
+
+### Phase-Based Development with Tags
+To ensure safe development and easy rollback capabilities, follow this git workflow:
+
+**1. Branch Strategy:**
+- `main` branch: Stable releases only
+- `develop` branch: Integration branch for each phase
+- `feature/phase-X-stepY` branches: Individual step implementations
+
+**2. Phase Completion Workflow:**
+```bash
+# After completing each phase:
+git add .
+git commit -m "Complete Phase X: [Description]"
+git tag -a "v0.X.0" -m "Phase X: [Phase Name] - Stable Release"
+git push origin main --tags
+
+# Example:
+git tag -a "v0.1.0" -m "Phase 1: Project Setup & Foundation - MVP Base"
+git tag -a "v0.2.0" -m "Phase 2: UI Implementation - Professional Interface"
+```
+
+**3. Rollback Safety:**
+```bash
+# View all phase versions:
+git tag -l
+
+# Rollback to previous working phase:
+git checkout v0.1.0
+git checkout -b hotfix/rollback-phase-2
+```
+
+**4. Recommended Tags:**
+- `v0.1.0` - Phase 1: Project Setup & Foundation ✅
+- `v0.2.0` - Phase 2: UI Implementation  
+- `v0.3.0` - Phase 3: JavaScript Core Functionality
+- `v0.4.0` - Phase 4: API Integration
+- `v0.5.0` - Phase 5: Web3 & Wallet Integration
+- `v0.6.0` - Phase 6: Testing & Optimization
+- `v0.7.0` - Phase 7: Deployment
+- `v1.0.0` - Phase 8: Production Release 🚀
+
+**5. Daily Development:**
+- Commit frequently with descriptive messages
+- Push to feature branches daily
+- Merge to develop branch after testing
+- Tag major milestones immediately
+
 ## 🚀 Phase 1: Project Setup & Foundation
 
 ### Step 1: Initialize Project Structure
@@ -304,13 +353,31 @@
 
 ---
 
-## 📝 Notes
+## 📝 Development Notes
 
-- Complete tasks in order for best results
-- Test thoroughly after each major phase
-- Commit code regularly with clear messages
-- Ask for help if stuck on any step
+**Git Workflow:**
+- **Tag each phase completion** immediately for rollback safety
+- Commit frequently with descriptive messages following conventional commits
+- Use feature branches for complex implementations
+- Test thoroughly before merging to main branch
+- **NEVER** skip tagging - it's your safety net!
+
+**Development Best Practices:**
+- Complete tasks in sequential order for best results
+- Test thoroughly after each major phase completion
+- Ask for help if stuck on any step - don't waste time
 - Priority: Get MVP working first, optimize later
+- Keep the PRD open as reference during development
+
+**Phase Completion Checklist:**
+```bash
+# Before moving to next phase:
+1. ✅ All tasks in current phase completed
+2. ✅ Code tested and working
+3. ✅ Committed with clear message
+4. ✅ Tagged with version number
+5. ✅ Pushed to GitHub with tags
+```
 
 ## 🎯 Success Criteria
 
