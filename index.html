@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="UberWallet - Professional cryptocurrency wallet platform for institutional clients and serious crypto professionals">
+    <meta name="keywords" content="crypto, wallet, bitcoin, ethereum, defi, institutional, professional">
+    <meta name="author" content="UberWallet Team">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="UberWallet - Professional Crypto Platform">
+    <meta property="og:description" content="Real-time market data, wallet connectivity, and professional crypto tools">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uberwallet.de">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    
+    <title>UberWallet - Professional Crypto Platform</title>
+    
+    <!-- CSS Files - Load in correct order -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo/Brand -->
+                <div class="brand">
+                    <h1 class="brand-name">UberWallet</h1>
+                    <span class="brand-tagline">Professional</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="nav" id="nav">
+                    <div class="nav-links">
+                        <a href="#dashboard" class="nav-link active">Dashboard</a>
+                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                        <a href="#markets" class="nav-link">Markets</a>
+                    </div>
+                    
+                    <!-- Wallet Connection -->
+                    <div class="wallet-section">
+                        <div class="network-indicator" id="networkIndicator">
+                            <span class="network-dot"></span>
+                            <span class="network-name" id="networkName">Disconnected</span>
+                        </div>
+                        <button class="wallet-btn" id="walletBtn">
+                            <span class="wallet-icon">🦊</span>
+                            <span class="wallet-text">Connect Wallet</span>
+                        </button>
+                        <div class="wallet-info hidden" id="walletInfo">
+                            <span class="wallet-address" id="walletAddress"></span>
+                            <span class="wallet-balance" id="walletBalance"></span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main" id="main">
+        <div class="container">
+            <!-- Market Overview Statistics -->
+            <section class="stats-section" id="statsSection">
+                <h2 class="section-title">Market Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card" id="marketCapCard">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Market Cap</div>
+                            <div class="stat-value" id="totalMarketCap">Loading...</div>
+                            <div class="stat-change" id="marketCapChange"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" id="volumeCard">
+                        <div class="stat-icon">💱</div>
+                        <div class="stat-content">
+                            <div class="stat-label">24h Volume</div>
+                            <div class="stat-value" id="totalVolume">Loading...</div>
+                            <div class="stat-change" id="volumeChange"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" id="btcDominanceCard">
+                        <div class="stat-icon">₿</div>
+                        <div class="stat-content">
+                            <div class="stat-label">BTC Dominance</div>
+                            <div class="stat-value" id="btcDominance">Loading...</div>
+                            <div class="stat-change" id="btcDominanceChange"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card" id="activeCryptosCard">
+                        <div class="stat-icon">🪙</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Active Cryptocurrencies</div>
+                            <div class="stat-value" id="activeCryptos">Loading...</div>
+                            <div class="stat-change" id="activeCryptosChange"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Price Table -->
+            <section class="price-section" id="priceSection">
+                <div class="section-header">
+                    <h2 class="section-title">Live Prices</h2>
+                    <button class="refresh-btn" id="refreshBtn">
+                        <span class="refresh-icon">↻</span>
+                        <span class="refresh-text">Refresh</span>
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table class="price-table" id="priceTable">
+                        <thead>
+                            <tr>
+                                <th class="th-rank">#</th>
+                                <th class="th-coin">Coin</th>
+                                <th class="th-price">Price</th>
+                                <th class="th-change">24h Change</th>
+                                <th class="th-market-cap">Market Cap</th>
+                                <th class="th-volume">Volume (24h)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="priceTableBody">
+                            <!-- Table rows will be dynamically populated -->
+                        </tbody>
+                    </table>
+                    
+                    <!-- Loading skeleton -->
+                    <div class="table-skeleton hidden" id="tableSkeleton">
+                        <!-- Skeleton rows will be generated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2024 UberWallet. Professional crypto platform.</p>
+                </div>
+                <div class="footer-right">
+                    <span class="footer-status">
+                        <span class="status-dot" id="statusDot"></span>
+                        <span class="status-text" id="statusText">Connecting...</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer">
+        <!-- Toast notifications will be dynamically added here -->
+    </div>
+
+    <!-- JavaScript Files - Load with defer -->
+    <script defer src="js/utils.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/api.js"></script>
+    <script defer src="js/wallet.js"></script>
+    <script defer src="js/app.js"></script>
+</body>
+</html>
