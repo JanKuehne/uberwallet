@@ -109,6 +109,144 @@
                 </div>
             </section>
 
+            <!-- Portfolio Analyzer Section -->
+            <section class="portfolio-section" id="portfolioSection">
+                <h2 class="section-title">Portfolio Analyzer</h2>
+                <div class="address-lookup-card">
+                    <div class="lookup-header">
+                        <div class="lookup-title">
+                            <span class="lookup-icon">🔍</span>
+                            <h3>Analyze Any Wallet</h3>
+                        </div>
+                        <p class="lookup-subtitle">Enter any Ethereum address or ENS name to analyze its portfolio</p>
+                    </div>
+                    
+                    <div class="lookup-input-section">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="addressInput" 
+                                class="address-input" 
+                                placeholder="Enter address (0x...) or ENS name (vitalik.eth)"
+                                spellcheck="false"
+                                autocomplete="off"
+                            >
+                            <button id="lookupBtn" class="lookup-btn">
+                                <span class="btn-icon">🔍</span>
+                                <span class="btn-text">Analyze</span>
+                            </button>
+                            <button id="clearBtn" class="clear-btn hidden">
+                                <span class="btn-icon">✕</span>
+                            </button>
+                        </div>
+                        
+                        <div class="quick-addresses">
+                            <span class="quick-label">Quick examples:</span>
+                            <button class="quick-address" data-address="vitalik.eth">vitalik.eth</button>
+                            <button class="quick-address" data-address="0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D">Uniswap V2</button>
+                            <button class="quick-address" data-address="0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045">Whale Wallet</button>
+                        </div>
+                        
+                        <div class="lookup-status" id="lookupStatus"></div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Display -->
+                <div class="portfolio-display hidden" id="portfolioDisplay">
+                    <div class="portfolio-header">
+                        <div class="portfolio-info">
+                            <h3 class="portfolio-address" id="portfolioAddress">0x1234...5678</h3>
+                            <div class="portfolio-meta">
+                                <span class="ens-name" id="portfolioENS"></span>
+                                <span class="last-updated" id="portfolioUpdated">Updated: Just now</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-actions">
+                            <button class="action-btn" id="refreshPortfolio">
+                                <span class="btn-icon">↻</span>
+                                <span class="btn-text">Refresh</span>
+                            </button>
+                            <button class="action-btn" id="exportPortfolio">
+                                <span class="btn-icon">💾</span>
+                                <span class="btn-text">Export</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Summary Cards -->
+                    <div class="portfolio-summary">
+                        <div class="summary-card">
+                            <div class="summary-icon">💰</div>
+                            <div class="summary-content">
+                                <div class="summary-label">Total Portfolio Value</div>
+                                <div class="summary-value" id="totalPortfolioValue">$0.00</div>
+                                <div class="summary-change" id="portfolioChange">+0.00%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card">
+                            <div class="summary-icon">⚡</div>
+                            <div class="summary-content">
+                                <div class="summary-label">ETH Balance</div>
+                                <div class="summary-value" id="ethBalance">0.0000 ETH</div>
+                                <div class="summary-usd" id="ethBalanceUSD">$0.00</div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card">
+                            <div class="summary-icon">🪙</div>
+                            <div class="summary-content">
+                                <div class="summary-label">Token Count</div>
+                                <div class="summary-value" id="tokenCount">0</div>
+                                <div class="summary-change" id="tokenCountChange">tokens</div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-card">
+                            <div class="summary-icon">📊</div>
+                            <div class="summary-content">
+                                <div class="summary-label">Last Activity</div>
+                                <div class="summary-value" id="lastActivity">Never</div>
+                                <div class="summary-change" id="activityType">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Token Holdings Table -->
+                    <div class="token-holdings">
+                        <div class="holdings-header">
+                            <h4>Token Holdings</h4>
+                            <div class="holdings-controls">
+                                <button class="control-btn active" data-view="list">List</button>
+                                <button class="control-btn" data-view="chart">Chart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="holdings-table-container">
+                            <table class="holdings-table" id="holdingsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Token</th>
+                                        <th>Balance</th>
+                                        <th>Price</th>
+                                        <th>Value</th>
+                                        <th>%</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="holdingsTableBody">
+                                    <!-- Holdings rows will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                            
+                            <!-- Holdings Loading Skeleton -->
+                            <div class="holdings-skeleton hidden" id="holdingsSkeleton">
+                                <!-- Skeleton rows will be generated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Live Price Table -->
             <section class="price-section" id="priceSection">
                 <div class="section-header">
@@ -172,6 +310,8 @@
     <script defer src="js/ui.js"></script>
     <script defer src="js/api.js"></script>
     <script defer src="js/wallet.js"></script>
+    <script defer src="js/blockchain.js"></script>
+    <script defer src="js/portfolio.js"></script>
     <script defer src="js/app.js"></script>
 </body>
 </html>

@@ -554,3 +554,557 @@ body {
 .status-dot.error {
   background: var(--danger);
 }
+
+/* ========================================
+   Portfolio Analyzer Section
+   ======================================== */
+
+.portfolio-section {
+  margin: var(--space-6) 0;
+}
+
+.address-lookup-card {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  margin-bottom: var(--space-4);
+}
+
+.lookup-header {
+  margin-bottom: var(--space-4);
+}
+
+.lookup-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.lookup-icon {
+  font-size: 1.5rem;
+}
+
+.lookup-title h3 {
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+.lookup-subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+.lookup-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+  max-width: 600px;
+}
+
+.address-input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-mono);
+  transition: var(--transition-base);
+}
+
+.address-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0, 82, 255, 0.2);
+}
+
+.address-input.invalid {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+}
+
+.address-input.valid {
+  border-color: var(--success);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.lookup-btn {
+  padding: var(--space-3) var(--space-4);
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  color: white;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 120px;
+  justify-content: center;
+}
+
+.lookup-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.lookup-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.lookup-btn.loading {
+  background: var(--primary-dark);
+}
+
+.clear-btn {
+  padding: var(--space-3);
+  background: var(--dark-card-hover);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+}
+
+.clear-btn:hover {
+  background: var(--danger);
+  color: white;
+  border-color: var(--danger);
+}
+
+.quick-addresses {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.quick-label {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  margin-right: var(--space-1);
+}
+
+.quick-address {
+  padding: var(--space-1) var(--space-2);
+  background: rgba(0, 82, 255, 0.1);
+  border: 1px solid rgba(0, 82, 255, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--primary-light);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.quick-address:hover {
+  background: rgba(0, 82, 255, 0.2);
+  border-color: var(--primary);
+  color: white;
+}
+
+.lookup-status {
+  min-height: 1.5rem;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.lookup-status.loading {
+  color: var(--primary);
+}
+
+.lookup-status.success {
+  color: var(--success);
+}
+
+.lookup-status.error {
+  color: var(--danger);
+}
+
+/* Portfolio Display */
+.portfolio-display {
+  background: var(--dark-card);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-top: var(--space-4);
+  animation: slideIn var(--transition-slow) ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.portfolio-info {
+  flex: 1;
+}
+
+.portfolio-address {
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-family: var(--font-mono);
+  font-weight: var(--font-weight-medium);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.portfolio-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.ens-name {
+  color: var(--primary-light);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  background: rgba(0, 82, 255, 0.1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.last-updated {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.portfolio-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.action-btn {
+  padding: var(--space-2) var(--space-3);
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.action-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Portfolio Summary Cards */
+.portfolio-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.summary-card {
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  transition: var(--transition-base);
+}
+
+.summary-card:hover {
+  background: var(--dark-card-hover);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.summary-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 82, 255, 0.1);
+  border-radius: var(--radius-lg);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.summary-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.summary-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.summary-value {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  word-break: break-all;
+}
+
+.summary-change {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.summary-usd {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* Token Holdings */
+.token-holdings {
+  padding: var(--space-6);
+}
+
+.holdings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.holdings-header h4 {
+  color: var(--text-primary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+}
+
+.holdings-controls {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.control-btn {
+  padding: var(--space-1) var(--space-3);
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.control-btn.active,
+.control-btn:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.holdings-table-container {
+  position: relative;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--dark-border);
+}
+
+.holdings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--dark-bg);
+}
+
+.holdings-table th {
+  background: var(--dark-card);
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--dark-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.holdings-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--dark-border);
+  color: var(--text-primary);
+  font-size: var(--font-size-base);
+}
+
+.holdings-table tbody tr {
+  transition: var(--transition-base);
+}
+
+.holdings-table tbody tr:hover {
+  background: var(--dark-card-hover);
+}
+
+.token-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.token-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.token-details {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.token-symbol {
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+}
+
+.token-name {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.token-balance {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.token-price,
+.token-value {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.token-percentage {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Holdings Skeleton */
+.holdings-skeleton {
+  padding: var(--space-4);
+}
+
+.skeleton-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.skeleton-item {
+  background: var(--dark-card);
+  border-radius: var(--radius-sm);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.skeleton-text {
+  height: 16px;
+}
+
+.skeleton-text.w-20 { width: 20%; }
+.skeleton-text.w-30 { width: 30%; }
+.skeleton-text.w-40 { width: 40%; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive Design for Portfolio Section */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .lookup-btn {
+    min-width: auto;
+  }
+  
+  .portfolio-header {
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+  
+  .portfolio-actions {
+    align-self: stretch;
+  }
+  
+  .action-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .portfolio-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .holdings-table-container {
+    font-size: var(--font-size-sm);
+  }
+  
+  .holdings-table th,
+  .holdings-table td {
+    padding: var(--space-2);
+  }
+  
+  .token-logo {
+    width: 24px;
+    height: 24px;
+  }
+}
